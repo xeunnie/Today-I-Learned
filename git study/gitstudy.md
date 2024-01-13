@@ -1,13 +1,24 @@
 CLI: command line interface 명령어를 직접 타이핑하는 인터페이스
 GUI: graphic user interface 버튼을 클릭하여 깃을 다루는 인터페이스
 
-버전관리?
-코딩할 때 원하는 시점마다 버전을 만들어 자유롭게 수정할 수 있다.
-내가 만든 버전 뿐만 아니라 동료가 만든 버전으로 이동할 수 있고, 동료와 내 버전을 비교해서 최신본으로 코드를 업데이트 할 수 있다.
+git: 버전관리 소프트웨어
+버전관리: 코딩할 때 원하는 시점마다 버전을 만들어 자유롭게 수정하게 해주는 것. 내가 만든 버전 뿐만 아니라 동료가 만든 버전으로 이동할 수 있고, 동료와 내 버전을 비교해서 최신본으로 코드를 업데이트 할 수 있음
 
 깃 초기화를 하면 .git이라는 숨겨진 폴더(로컬 저장소)가 만들어진다. 로컬 저장소에 만든 버전 정보, 원격 저장소 주소 등이 저장
 
-명령어 모음
+*완전 초기 설정
+1) homebrew 설치
+2) 이름을 master에서 main으로 바꿔주는 것인데 요즘 유행
+git config --global init.defaultBranch main
+3) git의 기본 에디터가 Vim 말고 VSCode로 변경
+git config --global core.editor "code --wait"
+4) git user setting하는 방법
+git config --global user.email "plumxeun@gmail.com"
+git config --global user.name "chloe_choi"
+
+* 깃 초기 설정
+1) git init
+작업 폴더에 깃 쓰고싶으면 쓰는 것. 시작 시 깃이 감시 시작
 git init 경로명: 컴퓨터 프로젝트 폴더에 git을 쓸것을 명령, 원하는 폴더에서 깃 초기화 하면 그때부터 사용 가능
 git status: 깃 상태 확인
 git log: 로그 확인
