@@ -1,0 +1,65 @@
+* 정규식 검사
+
+- 문자 검사하는 쉬운 방법
+1. '문자'.includes('찾을 단어')
+'abc'.includes('a') a라는 글자가 들어있는지 검사 -> 한글이 들어있나, 영어가 들어있나, 뭐로 끝나나 숫자가 몇개냐 그런거 안됨
+2. 정규표현식 (regular expression)
+/abc/ 이게 정규식, 문자 검사 가능 
+/abc여기 필요한 요소 들어감/.test('abcde여기가 검사당할 글자 들어감')
+
+- 정규식 문법
+1. 범위 지정 가능 -> [] 사용
+/[a-z]/.test('') 영어 소문자가 들어가는지 알려줌
+/[a-zA-z]/.test.('') 아무 영어가 들어가는지
+/[ㄱ-ㅎ가-힣]/ 한글 전체 아무거나 들어가는지
+/[0-9]/
+2. 특수문자 포함 아무문자 1개
+/\S/.test('abcd') //true
+/\S/ 아무 문자 다 포함
+/^a/ a로 시작하는지 검사, /a$/ a로 끝나는지 검사
+/a|b/ a또는b가 들어있는지
+/a+/ 뒤에 오는 글자들도 a와 일치하면 반복해서 쭉 검사 (aaaa 이런거 찾고싶으면 /a+/ 쓰기)
+3. 예시
+/\S+t/ => 모든 문자 여러개 다음에 t라는 글자가 있냐 검사해주는 정규식(aaat bbt 이런거 찾아줌)
+/\S+@\S+\.\S+/ => 이메일 정규식
+
+- 이메일 형식 검사
+예시) aaa@bbb.ccc 이런식으로 들어옴
+/\S@\S.\S/ S는 아무 글자 1개, 한글자면 통과되는 식 -> + 기호를 적어야함
+/\S+@\S+.\S+/
+
+검색 시 regex 쓰면 됨
+
+<script>
+        $('form').on('submit', function(e){
+            if (document.getElementById('email').value == ''){
+                alert('아이디 입력 안함');
+            }
+            //여기서부터 긴버젼
+            if (/\S+@\S+.\S+/.test(document.getElementById('email').value)){
+            })
+            //여기까지 긴버전
+
+            //여기서부터 변수에 저장했다가 보여주는 방식
+            var 입력한 값 = document.getElementById('email').value;
+            if (/\S+@\S+.\S+/.test(입력한값)){
+                alert('이메일 형식 아님');
+                e.preventDefault();
+            }
+            //여기까지 변수 버전
+        });
+
+</script>
+
+구글에 이메일 정규검증 방식 많음!
+
+폼 전송 시 비번이 대문자 1개 이상 검사
+
+<script>
+    $('form').on('submit', function(e){
+        var pw = document.getElementById('pw).value;
+        if(/[A-Z]/.test(pw)){
+           alert('password error') 
+        }
+    })
+</script>
