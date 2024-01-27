@@ -6,7 +6,7 @@ git: 버전관리 소프트웨어
 
 깃 초기화를 하면 .git이라는 숨겨진 폴더(로컬 저장소)가 만들어진다. 로컬 저장소에 만든 버전 정보, 원격 저장소 주소 등이 저장
 
-*완전 초기 설정
+* 완전 초기 설정
 1) homebrew 설치
 2) 이름을 master에서 main으로 바꿔주는 것인데 요즘 유행
 git config --global init.defaultBranch main
@@ -16,9 +16,67 @@ git config --global core.editor "code --wait"
 git config --global user.email "plumxeun@gmail.com"
 git config --global user.name "chloe_choi"
 
-* 깃 초기 설정
+* 깃 명령어 1탄
 1) git init
 작업 폴더에 깃 쓰고싶으면 쓰는 것. 시작 시 깃이 감시 시작
+2) git add . / git add 파일 명
+버전 기록할 파일 고르는 명령어. "."은 전체 파일 스테이징하는 명령어
+3) git commit -m "메세지"
+기록 명령어. 영구적 버전 생성 완료
+[git add와 git commit 사이의 상태는 staging area라고 부름, commit된 버전은 repository에 저장]
+4) git status
+어떤 파일들을 스태이징 해놨는지,어떤 파일들이 수정됐는지 확인가능
+
+* branch 기능
+HEAD는 내 위치
+1) git branch 브랜치 명
+브랜치 하나 생성해줌
+2) git switch 브랜치명
+브랜치 명으로 브랜치로 이동, 브랜치 스위치 시 커밋된 내용이 이관되지 않는 독립된 브랜치로 유지
+3) git merge 브랜치명
+깃 스위치해서 메인으로 이동한 뒤, 머지하면 합쳐짐
+4) git branch -d 브랜치명
+브랜치는 머지해도 남아있음 머지 완료된 브랜치는 삭제
+5) git branch -D 브랜치명
+머지 안한 브랜치 삭제
+
+* git merge 방식
+case 1. 3-way merge: 각 브랜치에 신규 commit이 있는 경우(가장 일반적인 방법)
+case 2. fast-forward merge: 기준 브랜치에 신규 commit이 없는 경우 -> 자동으로 commit하는 브랜치가 main이 됨 (싫으면 git merge --no-ff 브랜치명 설정하기)
+case 3. git rebase & merge: rebase & fast-forward merge인데 fast-forward 머지랑 비슷함
+case 4. squah & merge: "git merge --squash 새브랜치명" 사이드 브랜치 내용은 출력은 안되면서 반영은 되면서 깃 그래프로는 커밋 역사 순간 이동해줌
+안중요한 브랜치는 squash feature/develop 브랜치는 3-way 머지
+
+* git rebase
+간단하고 짦은 브랜치들에 쓰면 깔끔해져서 많이 씀. 단점으로 conflict 많이남
+일반 merge를 하고 싶으면 1.중심 브랜치 이동(git switch main) 2. git merge 새로운 브랜치명
+rebase & merge 하고 싶으면 1.새로운 브랜치로 이동(git switch 새로운 브랜치) 2.git rebase 중심브랜치명
+
+* git 되돌리기
+1) 파일 복구하는 법 "git restore 파일명" / 특정 커민 시점으로 파일을 복구하는 법 "git restore --source 커밋아이디" / git restore --staged 파일명
+2) 커밋 취소하는 법 "git revert 커밋아이디" => 에디터나 vim 뜸 커밋 메세지 적고 커밋하면 커밋아이디의 내용 없어짐 / 최근 커밋 취소 "git revert HEAD"
+3) 과거로 모든걸 되돌리기 "git reset --hard 커밋아이디" / "git reset --soft 커밋아이디" 리셋인데 변동사항 지우지 않고 staging / "git reset --mixed 커밋아이디" 변동사항 지우지 말고 unstaging
+
+* conflict 해결법
+컴플릭트난 파일 가서 원하는 코드만 남기고 수정해주고 깃애드 커밋 뿅뿅 (수동으로 해야함)
+
+
+* 쓸일 적은 명령어들
+) git log
+커밋한 내역들을 쭉 확인 가능
+참고로 git log --all --oneline --graph 옵션 넣으면 그래프로 그려줌!
+입력 후에 vim켜지니까 j,k로 위아래 스크롤하고 q키 눌러서 종료하기
+) git restore
+스테이징된 파일을 취소하는 명령어
+)git diff / git difftool
+최근 commit이랑 현재 파일 사이의 차이점 보여줌 diff는 에러가 많아서 별로고 difftool이 시각적으로 훨씬 나음
+(vim 뜨는데 hjkl 방향키로 잘 움직이긔 ":q"나 ":qa"하면 종료 뿅)
+git difftool 커밋아이디 (아이디 2개까지 입력 가능)
+이렇게 치면 잘 보여줌 근데 깃 그래프가 젤루 낫다
+
+
+
+
 git init 경로명: 컴퓨터 프로젝트 폴더에 git을 쓸것을 명령, 원하는 폴더에서 깃 초기화 하면 그때부터 사용 가능
 git status: 깃 상태 확인
 git log: 로그 확인
