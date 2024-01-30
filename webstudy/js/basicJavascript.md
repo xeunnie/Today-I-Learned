@@ -1,0 +1,24 @@
+* 자바스크립트의 정의
+html 파일 안에 몰래 숨어서 "html 조작과 변경"을 담당하는 언어
+
+* html을 조작, 변경하려면
+- document -> html 웹문서
+- . -> 마침표는 ~의
+- getElementById('어쩌구') -> 셀렉터: 아이디가 '어쩌구'인 html 요소 찾기위해 사용
+- innerHTML -> 내부 HTML 바꿔주는데, 메소드 자리
+- = -> 등호는 똑간
+- '글자'-> 스트링 담김
+
+document.getElementById('hello').innerHTML = 'hi';
+웹문서에 id가 hello인거 찾아서 '안녕'으로 내부 html 바꾸세요;
+
+innerHTML='hi';부분을
+.src='profile.jpg'나 .style.color="red" 같은걸로 바꿀 수 있음
+
+
+<h1 id="hello">Javascript chobo</h1>
+
+<script>
+  document.getElementById('hello').innerHTML = 'Javascript SSAP gosoo';
+  document.getElementById('hello').style.color = 'green';
+</script>

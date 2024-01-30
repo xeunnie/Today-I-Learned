@@ -60,6 +60,11 @@ rebase & merge 하고 싶으면 1.새로운 브랜치로 이동(git switch 새�
 * conflict 해결법
 컴플릭트난 파일 가서 원하는 코드만 남기고 수정해주고 깃애드 커밋 뿅뿅 (수동으로 해야함)
 
+* git repository 연결 수정하는 법
+1. git remote -v
+2. remote set-urlset-url 로 새로운 url 을 셋팅
+git remote set-url origin https://github.com/user/repo1.git
+
 
 * 쓸일 적은 명령어들
 ) git log
@@ -94,7 +99,7 @@ git log 생성한 커밋 보기
 git config --global user.name "Seungeun Choi":깃 사용자 등록
 git config --global user.email plumxeun@gmail.com: 깃 사용자 등록
 
-git remote add origin http://gitgub.com: 원격 저장소 깃허브에서 만들고 커밋 푸시하기
+git remote add origin https://github.com: 원격 저장소 깃허브에서 만들고 커밋 푸시하기
 
 git clone 원격 저장소URL 새폴더 이름: 깃허브 저장소 복제 (https://github.com/아이디/이름.git . 점 찍어 줘야 현재 폴더에 생성, 안찍으면 새폴더 생성)
 git pull 또는 git fetch: 커밋 가져오기
