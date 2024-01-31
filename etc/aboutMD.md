@@ -52,3 +52,5 @@ https://readme-typing-svg.demolab.com/demo/
 
 * 3d commit graph
 https://h-owo-ld.tistory.com/264
+
+https://github.com/kyechan99/capsule-render?tab=readme-ov-file#how-to-use
