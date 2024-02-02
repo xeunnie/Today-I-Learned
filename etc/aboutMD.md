@@ -54,3 +54,6 @@ https://readme-typing-svg.demolab.com/demo/
 https://h-owo-ld.tistory.com/264
 
 https://github.com/kyechan99/capsule-render?tab=readme-ov-file#how-to-use
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=xeunnie)](https://github.com/anuraghazra/github-readme-stats) <br>
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=xeunnie)](https://github.com/anuraghazra/github-readme-stats)
