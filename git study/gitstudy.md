@@ -80,6 +80,16 @@ git difftool 커밋아이디 (아이디 2개까지 입력 가능)
 이렇게 치면 잘 보여줌 근데 깃 그래프가 젤루 낫다
 
 
+* git stash
+짜던 코드를 잠깐 치워놓고 개발하고 싶을 때 git stash를 이용하면 잠깐 치울 수 있다.
+명령어를 치면 커밋 이후 수정된 코드들은 잠깐 다른 곳에 보관되고 커밋했던 상태로 코드들이 돌아간다.
+git stash save "메모 내용" 이렇게 메모도 작성 가능
+stash는 여러번 할 수 있기 때문에 stash list를 통해서 코드 목록을 전부 출력해볼 수 있다.
+git stash drop 삭제할 아이디 -> 특정 stash 삭제
+git stash clear 모든 stash 삭제
+git stash -p 일부 코드만 git stash 해줌 파일 훑어줄 때 y/n로 잘 대답해주면 된다.
+git stash pop 보관했던 코드를 불러옴
+사실상 주석이랑 기능은 비슷함 ㅎㅎ
 
 
 git init 경로명: 컴퓨터 프로젝트 폴더에 git을 쓸것을 명령, 원하는 폴더에서 깃 초기화 하면 그때부터 사용 가능

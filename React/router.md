@@ -36,3 +36,9 @@ function App(){
     </Routes>
   )
 }
+
+Routes를 만들고 그 안에 Route 작성
+
+<Link to="/">홈</Link>
+<Link to="/detail">상세페이지</Link>
+이런식으로 원하는 곳에 링크 만들기 가능
