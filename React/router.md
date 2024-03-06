@@ -9,7 +9,7 @@
 터미널에 npm install react-router-dom@6입력해서 설치하기
 
 1. 셋팅은 index.js 파일에 가서
-
+```javascript
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,11 +20,11 @@ root.render(
       </BrowserRouter>
   </React.StrictMode>
 );
-
+```
 이런식으로 감싸면 되는 부분
 
 2. 다른 페이지를 나눠주고 싶을 때, App.js파일 들어가서
-
+```javascript
 import { Routes, Route, Link } from 'react-router-dom'
 
 function App(){
@@ -36,9 +36,10 @@ function App(){
     </Routes>
   )
 }
-
+```
 Routes를 만들고 그 안에 Route 작성
-
+```javascript
 <Link to="/">홈</Link>
 <Link to="/detail">상세페이지</Link>
+```
 이런식으로 원하는 곳에 링크 만들기 가능
